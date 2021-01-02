@@ -1,3 +1,6 @@
+# Ensure a clean UI
+clear;
+
 # Ensure the AWS command line tool is installed
 if ! foobar_loc="$(type -p "aws")" || [[ -z $foobar_loc ]]; then
 
