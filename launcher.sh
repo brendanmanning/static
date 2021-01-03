@@ -59,7 +59,8 @@ then
   read -p "Enter aws_access_key_id: "  aws_access_key_id
   read -p "Enter aws_secret_access_key: "  aws_secret_access_key
 
-  echo "\n[wizard-cicd-readonly]" >> ~/.aws/credentials
+  echo "" >> ~/.aws/credentials
+  echo "[wizard-cicd-readonly]" >> ~/.aws/credentials
   echo "aws_access_key_id = $aws_access_key_id" >> ~/.aws/credentials
   echo "aws_secret_access_key = $aws_secret_access_key" >> ~/.aws/credentials
 
