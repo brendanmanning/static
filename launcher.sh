@@ -22,7 +22,7 @@ if ! foobar_loc="$(type -p "aws")" || [[ -z $foobar_loc ]]; then
 fi
 
 # Check if the AWS credentials file exists or not
-if [ ! -f ~/.aws/credentials"; then
+if [ ! -f ~/.aws/credentials ]; then
 
     echo "--------------------------------------------------------"
     echo "               DEFAULT AWS CREDENTIALS                  "
