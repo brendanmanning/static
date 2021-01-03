@@ -16,9 +16,30 @@ if ! foobar_loc="$(type -p "aws")" || [[ -z $foobar_loc ]]; then
 
   # Install it
   sudo installer -pkg aws_cli_installer.pkg -target /
-
+  
   # Cleanup UI
   clear
+fi
+
+# Check if the AWS credentials file exists or not
+if [ -f "~/.aws/credentials" ]; then
+    echo "--------------------------------------------------------"
+    echo "               DEFAULT AWS CREDENTIALS                  "
+    echo "This is setting up the default AWS CLI account on your  "
+    echo "        Mac since you don't already have one.           "
+    echo "   This is NOT the credentials I sent you in Discord    "
+    echo ""
+    echo "Respond with the following:                             "
+    echo "   • <ENTER> (nothing) "
+    echo "   • <ENTER> (nothing) "
+    echo "   • us-east-1 "
+    echo "   • json "
+    echo ""
+    echo "There will be a 25 second sleep to give you time to read"
+    
+    sleep 25;
+    
+    aws configure;
 fi
 
 # Check if the access policy exists
