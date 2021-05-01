@@ -75,7 +75,7 @@ EXPECTED="1.0.0"
 echo "INSTALLED VERSION: ${INSTALLED}";
 echo "EXPECTED VERSION: ${EXPECTED}";
 
-if [$INSTALLED != $EXPECTED]; then
+if [ $INSTALLED != $EXPECTED ]; then
 
   echo "--------------------------------------------------------"
   echo "                 DOWNLOADING LATEST                     "
