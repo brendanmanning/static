@@ -84,7 +84,7 @@ if [ $INSTALLED != $EXPECTED ]; then
   echo "--------------------------------------------------------"
 
   # Get the latest deployment
-  aws s3 cp s3://wizard-deploys/latest.jar ~/Trailmapper_latest.jar --profile wizard-cicd-readonly
+  aws s3 cp s3://wizard-deploys/Trailmapper.jar ~/Trailmapper_latest.jar --profile wizard-cicd-readonly
 
   # Cleanup the UI
   clear;
