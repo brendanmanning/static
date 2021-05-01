@@ -68,17 +68,28 @@ then
 
 fi
 
-echo "--------------------------------------------------------"
-echo "                 DOWNLOADING LATEST                     "
-echo "   Getting the most up to date version of the wizard    "
-echo "               Please be patient...                     "
-echo "--------------------------------------------------------"
+# Get the installed version
+INSTALLED=$(java -jar ~/Trailmapper_latest.jar -v)
+EXPECTED="1.0.0"
 
-# Get the latest deployment
-aws s3 cp s3://wizard-deploys/latest.jar ~/Trailmapper_latest.jar --profile wizard-cicd-readonly
+echo "INSTALLED VERSION: ${INSTALLED}";
+echo "EXPECTED VERSION: ${EXPECTED}";
 
-# Cleanup the UI
-clear;
+if [$INSTALLED != $EXPECTED]; then
+
+  echo "--------------------------------------------------------"
+  echo "                 DOWNLOADING LATEST                     "
+  echo "   Getting the most up to date version of the wizard    "
+  echo "               Please be patient...                     "
+  echo "--------------------------------------------------------"
+
+  # Get the latest deployment
+  aws s3 cp s3://wizard-deploys/latest.jar ~/Trailmapper_latest.jar --profile wizard-cicd-readonly
+
+  # Cleanup the UI
+  clear;
+ 
+ fi
 
 # Run the wizard
 cd ~
