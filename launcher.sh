@@ -70,7 +70,11 @@ fi
 
 # Get the installed version
 INSTALLED=$(java -jar ~/Trailmapper_latest.jar -v)
-EXPECTED="1.0.0"
+
+# Get the expected version
+aws s3 cp s3://wizard-deploys/current-version.txt ~/.trailmapper_expected_version.txt --profile wizard-cicd-readonly
+EXPECTED=$(cat  ~/.trailmapper_expected_version.txt);
+rm ~/.trailmapper_expected_version.txt;
 
 echo "INSTALLED VERSION: ${INSTALLED}";
 echo "EXPECTED VERSION: ${EXPECTED}";
