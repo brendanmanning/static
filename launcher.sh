@@ -68,13 +68,20 @@ then
 
 fi
 
-# Get the installed version
-INSTALLED=$(java -jar ~/Trailmapper_latest.jar -v)
+INSTALLED="XX";
+EXPECTED="YY";
 
-# Get the expected version
-aws s3 cp s3://wizard-deploys/current-version.txt ~/.trailmapper_expected_version.txt --profile wizard-cicd-readonly
-EXPECTED=$(cat  ~/.trailmapper_expected_version.txt);
-rm ~/.trailmapper_expected_version.txt;
+if [ ! -f ~/Trailmapper_latest.jar ]; then
+
+  # Get the installed version
+  INSTALLED=$(java -jar ~/Trailmapper_latest.jar -v)
+
+  # Get the expected version
+  aws s3 cp s3://wizard-deploys/current-version.txt ~/.trailmapper_expected_version.txt --profile wizard-cicd-readonly
+  EXPECTED=$(cat  ~/.trailmapper_expected_version.txt);
+  rm ~/.trailmapper_expected_version.txt;
+  
+fi
 
 echo "INSTALLED VERSION: ${INSTALLED}";
 echo "EXPECTED VERSION: ${EXPECTED}";
