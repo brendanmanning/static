@@ -69,7 +69,7 @@ then
 fi
 
 INSTALLED="XX";
-EXPECTED="1.0.0";
+EXPECTED=$(curl https://raw.githubusercontent.com/brendanmanning/static/master/version.txt);
 
 if [ -f ~/Trailmapper_latest.jar ]; then
 
