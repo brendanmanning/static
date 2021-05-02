@@ -15,10 +15,10 @@
               let textarea = document.getElementById("input")
               let text = textarea.value;
 
-              let str = "(";
+              let str = "(\n";
               let components = text.split("\n");
               for(let i = 0; i < components.length; i++) {
-                str += "CMTE_ID LIKE '" + components[i].trim() + "'";
+                str += "\tCMTE_ID LIKE '" + components[i].trim() + "'";
                 if(i != components.length - 1) {
                   str += " OR\n";
                 }
