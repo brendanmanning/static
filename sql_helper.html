@@ -4,13 +4,14 @@
     <br/>
     <textarea id="input" style="width:700px; height:400px"></textarea>
     <br/>
-    <button id="button" onclick="process()">Make WHERE clause</button>
+    <button id="button">Make WHERE clause</button>
   </body>
       <script>
         window.addEventListener('DOMContentLoaded', function() {
+          console.log("DOMCOntentLoaded")
           document.getElementById("button").addEventListener('click', function() {
-   
-            function process() {
+              console.log("button clicked!");
+            //function process() {
               let textarea = document.getElementById("input")
               let text = textarea.value;
 
@@ -26,7 +27,7 @@
 
               textarea.value = str;
 
-            }
+            //}
             
           }, false);
         }, false);
