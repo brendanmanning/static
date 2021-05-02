@@ -1,0 +1,32 @@
+<html>  
+  <head>
+    <script>
+      function process() {
+        let textarea = document.getElementById("input")
+        let text = textarea.value;
+        
+        let str = "(";
+        let components = text.split("\n");
+        for(let i = 0; i < components.length; i++) {
+          str += "CMTE_ID LIKE '" + components[i].trim() + "'";
+          if(i != components.length - 1) {
+            str += " OR\n";
+          }
+        }
+        str += "\n)
+        
+        textarea.value = str;
+        
+      }
+    </script>
+  </head>
+  <body>
+    <strong>Enter a committee on each line</strong>
+    <br/>
+    <textarea id="input">
+    
+    </textare>
+    <br/>
+    <button onclick="process()">Make WHERE clause</button>
+  </body>
+</html>
